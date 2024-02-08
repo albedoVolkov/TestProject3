@@ -2,8 +2,10 @@ package com.albedo.testproject3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import java.nio.file.Paths.get
+import dagger.hilt.EntryPoint
 
+
+@EntryPoint
 class MainActivity : AppCompatActivity() {
 //    1. Выводится краткая информация о пользователях (ФИО, фотография, адрес, номер
 //    телефона) в виде списка, полученная от https://randomuser.me ;
@@ -16,12 +18,10 @@ class MainActivity : AppCompatActivity() {
 //    6. Пользователю выводятся уведомления о возникших ошибках при загрузке данных или
 //    работе с ними.
 
-//Data
-// https://randomuser.me/api/?results=15
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
     }
 }
