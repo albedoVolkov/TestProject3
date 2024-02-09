@@ -1,0 +1,1191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/container_tbr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <include
+            android:id="@+id/toolBar"
+            layout="@layout/toolbar_user_information" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/container_scrool"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_gender"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Gender:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_gender_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_gender"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_gender"
+                app:layout_constraintTop_toTopOf="@+id/txt_gender" />
+
+
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+
+                android:text="Name:"
+                android:textSize="20sp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_gender"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/txt_name_title"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Title:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_name"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_name_title_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_name_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_name_title"
+                app:layout_constraintTop_toTopOf="@+id/txt_name_title" />
+
+
+            <TextView
+                android:id="@+id/txt_name_first"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="First:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_name_title"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_name_first_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_name_first"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_name_first"
+                app:layout_constraintTop_toTopOf="@+id/txt_name_first" />
+
+
+            <TextView
+                android:id="@+id/txt_name_last"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Last:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_name_first"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_name_last_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_name_last"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_name_last"
+                app:layout_constraintTop_toTopOf="@+id/txt_name_last" />
+
+            <TextView
+                android:id="@+id/txt_location"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Location:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_name_last"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/txt_location_street"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Street:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_street_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_street"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_street"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_street" />
+
+
+            <TextView
+                android:id="@+id/txt_location_city"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="City:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_street"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_city_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_city"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_city"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_city" />
+
+
+            <TextView
+                android:id="@+id/txt_location_state"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="State:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_city"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_state_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_state"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_state"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_state" />
+
+
+            <TextView
+                android:id="@+id/txt_location_country"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Country:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_state"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_country_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_country"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_country"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_country" />
+
+
+            <TextView
+                android:id="@+id/txt_location_postcode"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Postcode:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_country"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_postcode_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_postcode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_postcode"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_postcode" />
+
+
+            <TextView
+                android:id="@+id/txt_location_coordinates"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Coordinates:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_postcode"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/txt_location_coordinates_latitude"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="60dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Latitude:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_coordinates"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_coordinates_latitude_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_coordinates_latitude"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_coordinates_latitude"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_coordinates_latitude" />
+
+
+            <TextView
+                android:id="@+id/txt_location_coordinates_longitude"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="60dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Longitude:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_coordinates_latitude"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_coordinates_longitude_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_coordinates_longitude"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_coordinates_longitude"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_coordinates_longitude" />
+
+
+            <TextView
+                android:id="@+id/txt_location_timezone"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Timezone:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_coordinates_longitude"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/txt_location_timezone_offset"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="60dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Offset:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_timezone"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_timezone_offset_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_timezone_offset"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_timezone_offset"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_timezone_offset" />
+
+            <TextView
+                android:id="@+id/txt_location_timezone_description"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="60dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Description:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_timezone_offset"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_location_timezone_description_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_location_timezone_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_location_timezone_description"
+                app:layout_constraintTop_toTopOf="@+id/txt_location_timezone_description" />
+
+
+            <TextView
+                android:id="@+id/txt_email"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Email:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_location_timezone_description"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_email_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_email"
+                app:layout_constraintTop_toTopOf="@+id/txt_email" />
+
+
+            <TextView
+                android:id="@+id/txt_login"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Login:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_email"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/txt_login_uuid"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Uuid:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/txt_login_uuid_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_login_uuid"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_login_uuid"
+                app:layout_constraintTop_toTopOf="@+id/txt_login_uuid" />
+
+            <TextView
+                android:id="@+id/txt_login_username"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Username:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login_uuid"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/txt_login_username_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_login_username"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/txt_login_username"
+                app:layout_constraintTop_toTopOf="@+id/txt_login_username" />
+
+            <TextView
+                android:id="@+id/txt_login_password"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Password:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login_username"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_login_password_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_login_password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_login_password"
+                app:layout_constraintTop_toTopOf="@+id/txt_login_password" />
+
+
+            <TextView
+                android:id="@+id/txt_login_salt"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Salt:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login_password"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_login_salt_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_login_salt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_login_salt"
+                app:layout_constraintTop_toTopOf="@+id/txt_login_salt" />
+
+
+            <TextView
+                android:id="@+id/txt_login_md5"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Md5:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login_salt"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_login_md5_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_login_md5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_login_md5"
+                app:layout_constraintTop_toTopOf="@+id/txt_login_md5" />
+
+
+            <TextView
+                android:id="@+id/txt_login_sha1"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Sha1:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login_md5"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_login_sha1_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_login_sha1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_login_sha1"
+                app:layout_constraintTop_toTopOf="@+id/txt_login_sha1" />
+
+            <TextView
+                android:id="@+id/txt_login_sha256"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Sha256:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login_sha1"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_login_sha256_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_login_sha256"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_login_sha256"
+                app:layout_constraintTop_toTopOf="@+id/txt_login_sha256" />
+
+
+            <TextView
+                android:id="@+id/txt_bod"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Bod:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_login_sha256"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_bod_date"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Date:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_bod"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_bod_date_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_bod_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_bod_date"
+                app:layout_constraintTop_toTopOf="@+id/txt_bod_date" />
+
+            <TextView
+                android:id="@+id/txt_bod_age"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Age:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_bod_date"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_bod_age_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_bod_age"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_bod_age"
+                app:layout_constraintTop_toTopOf="@+id/txt_bod_age" />
+
+            <TextView
+                android:id="@+id/txt_registration"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Registration:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_bod_age"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_registration_date"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Date:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_registration"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_registration_date_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_registration_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_registration_date"
+                app:layout_constraintTop_toTopOf="@+id/txt_registration_date" />
+
+            <TextView
+                android:id="@+id/txt_registration_age"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Age:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_registration_date"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_registration_age_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_registration_age"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_registration_age"
+                app:layout_constraintTop_toTopOf="@+id/txt_registration_age" />
+
+
+            <TextView
+                android:id="@+id/txt_phone"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Phone:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_registration_age"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_phone_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_phone"
+                app:layout_constraintTop_toTopOf="@+id/txt_phone" />
+
+            <TextView
+                android:id="@+id/txt_cell"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Cell:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_phone"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_cell_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_cell"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_cell"
+                app:layout_constraintTop_toTopOf="@+id/txt_cell" />
+
+            <TextView
+                android:id="@+id/txt_id"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Id:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_cell"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_id_name"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Name:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_id"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_id_name_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_id_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_id_name"
+                app:layout_constraintTop_toTopOf="@+id/txt_id_name" />
+
+            <TextView
+                android:id="@+id/txt_id_value"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="40dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Value:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_id_name"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_id_value_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_id_value"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_id_value"
+                app:layout_constraintTop_toTopOf="@+id/txt_id_value" />
+
+
+            <TextView
+                android:id="@+id/txt_nat"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="50dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center"
+                android:minHeight="10sp"
+                android:text="Nat:"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_id_value"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/txt_nat_info"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="20dp"
+                android:autoSizeTextType="uniform"
+                android:gravity="center_vertical"
+                android:minHeight="10sp"
+                android:paddingHorizontal="10dp"
+                android:text="Male"
+                app:layout_constraintBottom_toBottomOf="@+id/txt_nat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_nat"
+                app:layout_constraintTop_toTopOf="@+id/txt_nat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_tbr"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
