@@ -5,24 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.albedo.testproject3.data.models.CoordinatesInner
-import com.albedo.testproject3.data.models.DodInner
-import com.albedo.testproject3.data.models.IdInner
-import com.albedo.testproject3.data.models.LocationInner
-import com.albedo.testproject3.data.models.LoginInner
-import com.albedo.testproject3.data.models.NameInner
-import com.albedo.testproject3.data.models.PictureInner
-import com.albedo.testproject3.data.models.RegisteredInner
-import com.albedo.testproject3.data.models.StreetInner
-import com.albedo.testproject3.data.models.TimeZoneInner
-import com.albedo.testproject3.data.models.UserDataUIState
+import com.albedo.testproject3.data.models.UserUIState
 import com.albedo.testproject3.data.source.local.UsersDao
 import com.albedo.testproject3.services.ListTypeConverter
 import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.annotation.Nullable
 
 
-@Database(entities = [UserDataUIState::class, ], version = 1, exportSchema = true)
+@Database(entities = [UserUIState::class, ], version = 1, exportSchema = true)
 @TypeConverters(ListTypeConverter::class)
 abstract class AppDataBase : RoomDatabase() {
 

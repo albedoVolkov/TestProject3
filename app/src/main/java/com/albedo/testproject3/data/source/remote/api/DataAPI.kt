@@ -1,6 +1,6 @@
 package com.albedo.testproject3.data.source.remote.api
 
-import com.albedo.testproject3.data.models.DataFromServer
+import com.albedo.testproject3.data.models.fromServer.DataFromServer
 import com.albedo.testproject3.services.ConstantsSource
 import retrofit2.http.GET
 

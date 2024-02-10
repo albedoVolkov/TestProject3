@@ -4,27 +4,28 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.albedo.testproject3.data.models.UserDataUIState
+import com.albedo.testproject3.data.models.UserUIState
+import com.albedo.testproject3.services.ConstantsSource
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UsersDao  {
-        @Insert(UserDataUIState::class,onConflict = OnConflictStrategy.REPLACE)
-        suspend fun insertList(items: List<UserDataUIState>)
+        @Insert(UserUIState::class,onConflict = OnConflictStrategy.REPLACE)
+        suspend fun insertList(items: List<UserUIState>)
 
-        @Query("delete from users")
+        @Query("delete from ${ConstantsSource.USERS_ROOM_TABLE_NAME}")
         suspend fun clear()
 
-        @Query("SELECT * FROM users")
-        fun getAllFlow(): Flow<List<UserDataUIState>>
+        @Query("SELECT * FROM ${ConstantsSource.USERS_ROOM_TABLE_NAME}")
+        fun getAllFlow(): Flow<List<UserUIState>>
 
-        @Query("SELECT * FROM users")
-        suspend fun getAll(): List<UserDataUIState>
+        @Query("SELECT * FROM ${ConstantsSource.USERS_ROOM_TABLE_NAME}")
+        suspend fun getAll(): List<UserUIState>
 
-        @Query("SELECT * FROM users WHERE id =:id LIMIT 1")
-        fun getItemByIdFlow(id : String): Flow<UserDataUIState?>
+        @Query("SELECT * FROM ${ConstantsSource.USERS_ROOM_TABLE_NAME} WHERE id =:idMain LIMIT 1")
+        fun getItemByIdFlow(idMain : String): Flow<UserUIState?>
 
-        @Query("SELECT * FROM users WHERE id =:id LIMIT 1")
-        suspend fun getItemById(id : String): UserDataUIState?
+        @Query("SELECT * FROM ${ConstantsSource.USERS_ROOM_TABLE_NAME} WHERE id =:idMain LIMIT 1")
+        suspend fun getItemById(idMain : String): UserUIState?
 
 }

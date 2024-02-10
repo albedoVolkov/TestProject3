@@ -1,10 +1,14 @@
 package com.albedo.testproject3.data.repository
 
+import android.content.Context
 import android.util.Log
-import com.albedo.testproject3.data.models.UserDataUIState
+import android.widget.Toast
+import com.albedo.testproject3.data.models.UserUIState
 import com.albedo.testproject3.data.source.local.UsersLocalDataSource
 import com.albedo.testproject3.data.source.remote.RetrofitDataSource
+import com.albedo.testproject3.services.ItemFactory
 import com.albedo.testproject3.services.SessionManager
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -13,6 +17,8 @@ class UsersRepository @Inject constructor(
     private val sessionManager: SessionManager,//main source of data
     private val remoteSource: RetrofitDataSource,//main source of data
     private val localSource: UsersLocalDataSource,//just holder of data
+    private val factory: ItemFactory,//just holder of data
+    @ApplicationContext private val context: Context
 ) : UsersRepoInterface {
 
     companion object{
@@ -21,9 +27,9 @@ class UsersRepository @Inject constructor(
 
 
 
-    override suspend fun updatePermissionUpdate(noNeedToUpdate : Boolean) {
+    override suspend fun updatePermissionUpdate(permission : Boolean) {
         try{
-            sessionManager.updateDataLoginSession(noNeedToUpdate)
+            sessionManager.updateDataLoginSession(permission)
         } catch (e: Exception) {
             Log.d(TAG, "updatePermissionUpdate: error - ${e.message}")
         }
@@ -39,20 +45,40 @@ class UsersRepository @Inject constructor(
                 Log.d(TAG, "refreshItemsData : items = $remoteData")
 
                 if (remoteData != null) {
-                    localSource.updateListItems(remoteData.results)
+                    val listNew = mutableListOf<UserUIState>()
+                    for(item in remoteData.results) {
+                        listNew.add(
+                            factory.createNewUserUIState(
+                                item.gender,
+                                item.name,
+                                item.location,
+                                item.email,
+                                item.login,
+                                item.dob,
+                                item.registered,
+                                item.phone,
+                                item.cell,
+                                item.picture,
+                                item.nat
+                            )
+                        )
+                    }
+                    Log.d(TAG, "refreshItemsData: listNew - $listNew")
+                    localSource.updateListItems(listNew)
                     updatePermissionUpdate(true)
                 }
             }
         } catch (e: Exception) {
             Log.d(TAG, "refreshItemsData: error - ${e.message}")
+            Toast.makeText(context,"Ошибка при загрузке данных - ${e.message}",Toast.LENGTH_LONG).show()
         }
     }
 
 
 
 
-    override fun getItemListFlow(): Flow<List<UserDataUIState>> = localSource.getListItemsFlow()
-    override suspend fun getItemList(): List<UserDataUIState> = localSource.getListItems()
-    override fun getItemByIdFlow(id: String): Flow<UserDataUIState?> = localSource.getItemByIdFlow(id)
-    override suspend fun getItemById(id: String): UserDataUIState? = localSource.getItemById(id)
+    override fun getItemListFlow(): Flow<List<UserUIState>> = localSource.getListItemsFlow()
+    override suspend fun getItemList(): List<UserUIState> = localSource.getListItems()
+    override fun getItemByIdFlow(id: String): Flow<UserUIState?> = localSource.getItemByIdFlow(id)
+    override suspend fun getItemById(id: String): UserUIState? = localSource.getItemById(id)
 }

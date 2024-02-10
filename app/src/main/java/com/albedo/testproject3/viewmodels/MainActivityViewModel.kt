@@ -3,7 +3,7 @@ package com.albedo.testproject3.viewmodels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.albedo.testproject3.data.models.UserDataUIState
+import com.albedo.testproject3.data.models.UserUIState
 import com.albedo.testproject3.data.repository.UsersRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
@@ -20,33 +20,33 @@ class MainActivityViewModel @Inject constructor(private val repository : UsersRe
 
 
     //ITEMS
-    val data: Flow<List<UserDataUIState>> = repository.getItemListFlow().asLiveDataFlow()
+    val data: Flow<List<UserUIState>> = repository.getItemListFlow().asLiveDataFlow()
 
-    private var _showItems : List<UserDataUIState> = emptyList()
-    val showItems: List<UserDataUIState> get() = _showItems
+    private var _showItems : List<UserUIState> = emptyList()
+    val showItems: List<UserUIState> get() = _showItems
 
-    private var _mainItems : List<UserDataUIState> = listOf()
-    val mainItems: List<UserDataUIState> get() = _mainItems// this list isn't for showing and not sorted
+    private var _mainItems : List<UserUIState> = listOf()
+    val mainItems: List<UserUIState> get() = _mainItems// this list isn't for showing and not sorted
 
     private fun <T> Flow<T>.asLiveDataFlow() = shareIn(viewModelScope, SharingStarted.Lazily, replay = 1)
 
+    init {
+       refreshData()
+    }
 
 
-    fun setListInViewModel(list : List<UserDataUIState>) {
+    fun setListInViewModel(list : List<UserUIState>) {
         Log.d(TAG, "setListInViewModel : list - $list")
         _mainItems = list
     }
 
-    fun filterItems(filterType: String) {
-        _showItems = when (filterType) {
-            "None" -> emptyList()
-            "All" -> _mainItems
-            "Reversed" -> _mainItems.reversed()
-            else -> _mainItems
+    private fun refreshData(){
+        viewModelScope.launch {
+            async {  repository.refreshItemsData()}.await()
         }
     }
 
-    fun refreshData(){
+    fun refreshDataByBtn(){
         viewModelScope.launch {
             async {  repository.updatePermissionUpdate(false)}.await()
             async {  repository.refreshItemsData()}.await()

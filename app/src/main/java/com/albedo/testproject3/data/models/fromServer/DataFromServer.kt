@@ -1,4 +1,4 @@
-package com.albedo.testproject3.data.models
+package com.albedo.testproject3.data.models.fromServer
 
 import com.google.gson.annotations.SerializedName
 

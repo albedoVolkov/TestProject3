@@ -1,17 +1,17 @@
 package com.albedo.testproject3.data.source.local
 
-import com.albedo.testproject3.data.models.UserDataUIState
+import com.albedo.testproject3.data.models.UserUIState
 import kotlinx.coroutines.flow.Flow
 
 interface UsersDataSource {
 
-        fun getListItemsFlow(): Flow<List<UserDataUIState>>
-        suspend fun getListItems(): List<UserDataUIState>
+        fun getListItemsFlow(): Flow<List<UserUIState>>
+        suspend fun getListItems(): List<UserUIState>
 
-        fun getItemByIdFlow(id : String) : Flow<UserDataUIState?>
-        suspend fun getItemById(id : String) : UserDataUIState?
+        fun getItemByIdFlow(id : String) : Flow<UserUIState?>
+        suspend fun getItemById(id : String) : UserUIState?
 
-        suspend fun updateListItems(list: List<UserDataUIState>) : Unit
-        suspend fun deleteAllItems(): Unit
+        suspend fun updateListItems(list: List<UserUIState>)
+        suspend fun deleteAllItems()
 
     }

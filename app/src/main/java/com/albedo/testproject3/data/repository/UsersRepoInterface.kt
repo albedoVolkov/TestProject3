@@ -1,6 +1,6 @@
 package com.albedo.testproject3.data.repository
 
-import com.albedo.testproject3.data.models.UserDataUIState
+import com.albedo.testproject3.data.models.UserUIState
 import kotlinx.coroutines.flow.Flow
 
 interface UsersRepoInterface  {
@@ -8,8 +8,8 @@ interface UsersRepoInterface  {
     suspend fun updatePermissionUpdate(permission : Boolean)
     suspend fun refreshItemsData()
 
-    fun getItemListFlow(): Flow<List<UserDataUIState>>
-    suspend fun getItemList(): List<UserDataUIState>
-    fun getItemByIdFlow(id : String) : Flow<UserDataUIState?>
-    suspend fun getItemById(id : String) : UserDataUIState?
+    fun getItemListFlow(): Flow<List<UserUIState>>
+    suspend fun getItemList(): List<UserUIState>
+    fun getItemByIdFlow(id : String) : Flow<UserUIState?>
+    suspend fun getItemById(id : String) : UserUIState?
 }

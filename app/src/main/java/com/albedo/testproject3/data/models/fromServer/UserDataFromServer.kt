@@ -1,61 +1,46 @@
-package com.albedo.testproject3.data.models
+package com.albedo.testproject3.data.models.fromServer
 
 import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import java.util.Date
 
-@Entity(tableName = "users")
 data class UserDataUIState(
+
     @SerializedName("gender")
-    @ColumnInfo(name = "gender")
     val gender : String = "",
 
     @SerializedName("name")
-    @ColumnInfo(name = "name")
     val name : NameInner = NameInner(),
 
     @SerializedName("location")
-    @ColumnInfo(name = "location")
     val location : LocationInner = LocationInner(),
 
     @SerializedName("email")
-    @ColumnInfo(name = "email")
     val email : String = "",
 
     @SerializedName("login")
-    @ColumnInfo(name = "login")
     val login : LoginInner = LoginInner(),
 
     @SerializedName("dob")
-    @ColumnInfo(name = "dob")
     val dob : DodInner = DodInner(),
 
     @SerializedName("registered")
-    @ColumnInfo(name = "registered")
     val registered : RegisteredInner = RegisteredInner(),
 
     @SerializedName("phone")
-    @ColumnInfo(name = "phone")
     val phone : String = "",
 
     @SerializedName("cell")
-    @ColumnInfo(name = "cell")
     val cell : String = "",
 
-    @PrimaryKey
     @SerializedName("id")
-    @ColumnInfo(name = "id")
     val id : IdInner = IdInner(),
 
     @SerializedName("picture")
-    @ColumnInfo(name = "picture")
     val picture : PictureInner = PictureInner(),
 
     @SerializedName("nat")
-    @ColumnInfo(name = "nat")
     val nat : String = "",
     ){
     override fun toString(): String {

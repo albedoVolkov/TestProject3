@@ -2,7 +2,7 @@ package com.albedo.testproject3.data.source.local
 
 import javax.inject.Inject
 import android.util.Log
-import com.albedo.testproject3.data.models.UserDataUIState
+import com.albedo.testproject3.data.models.UserUIState
 import com.albedo.testproject3.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
@@ -15,9 +15,9 @@ class UsersLocalDataSource @Inject internal constructor(
 
         private val TAG = "UsersLocalDataSource"
 
-        override fun getListItemsFlow(): Flow<List<UserDataUIState>> = dao.getAllFlow()
+        override fun getListItemsFlow(): Flow<List<UserUIState>> = dao.getAllFlow()
 
-        override suspend fun getListItems(): List<UserDataUIState> = withContext(ioDispatcher) {
+        override suspend fun getListItems(): List<UserUIState> = withContext(ioDispatcher) {
             try {
                 return@withContext dao.getAll()
             } catch (e: Exception) {
@@ -28,10 +28,10 @@ class UsersLocalDataSource @Inject internal constructor(
 
 
 
-        override fun getItemByIdFlow(id : String) : Flow<UserDataUIState?> = dao.getItemByIdFlow(id)
+        override fun getItemByIdFlow(id : String) : Flow<UserUIState?> = dao.getItemByIdFlow(id)
 
 
-        override suspend fun getItemById(id : String) : UserDataUIState? = withContext(ioDispatcher) {
+        override suspend fun getItemById(id : String) : UserUIState? = withContext(ioDispatcher) {
             try {
                 return@withContext dao.getItemById(id)
             } catch (e: Exception) {
@@ -39,7 +39,7 @@ class UsersLocalDataSource @Inject internal constructor(
             }
         }
 
-        override suspend fun updateListItems(list: List<UserDataUIState>) : Unit = withContext(ioDispatcher) {
+        override suspend fun updateListItems(list: List<UserUIState>) : Unit = withContext(ioDispatcher) {
             Log.d(TAG, "list = $list")
             dao.clear()
             dao.insertList(list)
