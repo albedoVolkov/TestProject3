@@ -21,9 +21,9 @@ class UsersRepository @Inject constructor(
 
 
 
-    override suspend fun updatePermissionUpdate(permission : Boolean) {
+    override suspend fun updatePermissionUpdate(noNeedToUpdate : Boolean) {
         try{
-            sessionManager.updateDataLoginSession(permission)
+            sessionManager.updateDataLoginSession(noNeedToUpdate)
         } catch (e: Exception) {
             Log.d(TAG, "updatePermissionUpdate: error - ${e.message}")
         }
@@ -39,13 +39,8 @@ class UsersRepository @Inject constructor(
                 Log.d(TAG, "refreshItemsData : items = $remoteData")
 
                 if (remoteData != null) {
-                    val list = remoteData.results
-                    if (list.isNotEmpty()) {
-                        localSource.updateListItems(list)
-                        sessionManager.updateDataLoginSession(true)
-                    } else {
-                        sessionManager.updateDataLoginSession(false)
-                    }
+                    localSource.updateListItems(remoteData.results)
+                    updatePermissionUpdate(true)
                 }
             }
         } catch (e: Exception) {

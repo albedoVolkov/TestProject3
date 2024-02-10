@@ -4,9 +4,10 @@ import android.app.Application
 import android.util.Log
 import androidx.work.Configuration
 import dagger.hilt.android.HiltAndroidApp
+import javax.inject.Inject
 
 @HiltAndroidApp
-class App : Application(), Configuration.Provider {
+class App @Inject constructor() : Application(), Configuration.Provider {
 
     override val workManagerConfiguration: Configuration
         get() = Configuration

@@ -1,6 +1,6 @@
 package com.albedo.testproject3.services
 
-object  ConstantsSource {
+object ConstantsSource {
 
     //dataBase
     const val USERS_ROOM_TABLE_NAME = "UsersListRoom"

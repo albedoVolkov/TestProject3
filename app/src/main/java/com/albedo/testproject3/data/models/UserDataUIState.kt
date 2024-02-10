@@ -15,11 +15,11 @@ data class UserDataUIState(
 
     @SerializedName("name")
     @ColumnInfo(name = "name")
-    val name : NameInner? = null,
+    val name : NameInner = NameInner(),
 
     @SerializedName("location")
     @ColumnInfo(name = "location")
-    val location : LocationInner? = null,
+    val location : LocationInner = LocationInner(),
 
     @SerializedName("email")
     @ColumnInfo(name = "email")
@@ -27,15 +27,15 @@ data class UserDataUIState(
 
     @SerializedName("login")
     @ColumnInfo(name = "login")
-    val login : LoginInner? = null,
+    val login : LoginInner = LoginInner(),
 
     @SerializedName("dob")
     @ColumnInfo(name = "dob")
-    val dob : DodInner? = null,
+    val dob : DodInner = DodInner(),
 
     @SerializedName("registered")
     @ColumnInfo(name = "registered")
-    val registered : RegisteredInner? = null,
+    val registered : RegisteredInner = RegisteredInner(),
 
     @SerializedName("phone")
     @ColumnInfo(name = "phone")
@@ -48,11 +48,11 @@ data class UserDataUIState(
     @PrimaryKey
     @SerializedName("id")
     @ColumnInfo(name = "id")
-    val id : IdInner? = null,
+    val id : IdInner = IdInner(),
 
     @SerializedName("picture")
     @ColumnInfo(name = "picture")
-    val picture : PictureInner? = null,
+    val picture : PictureInner = PictureInner(),
 
     @SerializedName("nat")
     @ColumnInfo(name = "nat")
@@ -84,12 +84,23 @@ data class NameInner(
     @SerializedName("last")
     @ColumnInfo(name = "last")
     val last : String = "",
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToNameInnerItem(string: String): NameInner? {
+    return try {
+        Gson().fromJson(string, NameInner::class.java)
+    }catch(e : Exception){ null }
+}
+
 
 data class LocationInner(
     @SerializedName("street")
     @ColumnInfo(name = "street")
-    val street : StreetInner? = null,
+    val street : StreetInner = StreetInner(0,""),
 
     @SerializedName("city")
     @ColumnInfo(name = "city")
@@ -109,12 +120,27 @@ data class LocationInner(
 
     @SerializedName("coordinates")
     @ColumnInfo(name = "coordinates")
-    val coordinates : CoordinatesInner? = null,
+    val coordinates : CoordinatesInner = CoordinatesInner(0.0,0.0),
 
     @SerializedName("timezone")
     @ColumnInfo(name = "timezone")
-    val timezone : TimeZoneInner? = null,
-)
+    val timezone : TimeZoneInner = TimeZoneInner("",""),
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToLocationInnerItem(string: String): LocationInner? {
+    return try {
+        Gson().fromJson(string, LocationInner::class.java)
+    }catch(e : Exception){ null }
+}
+
+
+
+
+
 data class StreetInner(
     @SerializedName("number")
     @ColumnInfo(name = "number")
@@ -123,7 +149,20 @@ data class StreetInner(
     @SerializedName("name")
     @ColumnInfo(name = "name")
     val name : String = "",
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToStreetInnerItem(string: String): StreetInner? {
+    return try {
+        Gson().fromJson(string, StreetInner::class.java)
+    }catch(e : Exception){ null }
+}
+
+
+
 data class CoordinatesInner(
     @SerializedName("latitude")
     @ColumnInfo(name = "latitude")
@@ -132,41 +171,157 @@ data class CoordinatesInner(
     @SerializedName("longitude")
     @ColumnInfo(name = "longitude")
     val longitude : Double = 0.0,
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToCoordinatesInnerItem(string: String): CoordinatesInner? {
+    return try {
+        Gson().fromJson(string, CoordinatesInner::class.java)
+    }catch(e : Exception){ null }
+}
+
+
+
+
 data class TimeZoneInner(
+    @SerializedName("offset")
+    @ColumnInfo(name = "offset")
     val offset : String = "",
+    @SerializedName("description")
+    @ColumnInfo(name = "description")
     val description : String = "",
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToTimeZoneInnerItem(string: String): TimeZoneInner? {
+    return try {
+        Gson().fromJson(string, TimeZoneInner::class.java)
+    }catch(e : Exception){ null }
+}
+
+
+
+
 data class DodInner(
-    val date : Date? = null,
+    @SerializedName("date")
+    @ColumnInfo(name = "date")
+    val date : Date = Date(0L),
+    @SerializedName("age")
+    @ColumnInfo(name = "age")
     val age : Int = 0,
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToDodInnerItem(string: String): DodInner? {
+    return try {
+        Gson().fromJson(string, DodInner::class.java)
+    }catch(e : Exception){ null }
+}
 
 data class LoginInner(
+    @SerializedName("uuid")
+    @ColumnInfo(name = "uuid")
     val uuid : String = "",
+    @SerializedName("username")
+    @ColumnInfo(name = "username")
     val username : String = "",
+    @SerializedName("password")
+    @ColumnInfo(name = "password")
     val password : String = "",
+    @SerializedName("salt")
+    @ColumnInfo(name = "salt")
     val salt : String = "",
+    @SerializedName("md5")
+    @ColumnInfo(name = "md5")
     val md5 : String = "",
+    @SerializedName("sha1")
+    @ColumnInfo(name = "sha1")
     val sha1 : String = "",
+    @SerializedName("sha256")
+    @ColumnInfo(name = "sha256")
     val sha256 : String = "",
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToLoginInnerItem(string: String): LoginInner? {
+    return try {
+        Gson().fromJson(string, LoginInner::class.java)
+    }catch(e : Exception){ null }
+}
 
 data class RegisteredInner(
-    val date : Date? = null,
+    @SerializedName("date")
+    @ColumnInfo(name = "date")
+    val date : Date = Date(0L),
+    @SerializedName("age")
+    @ColumnInfo(name = "age")
     val age : Int = 0,
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToRegisteredInnerItem(string: String): RegisteredInner? {
+    return try {
+        Gson().fromJson(string, RegisteredInner::class.java)
+    }catch(e : Exception){ null }
+}
+
 
 data class IdInner(
+    @SerializedName("name")
+    @ColumnInfo(name = "name")
     val name : String = "",
+    @SerializedName("value")
+    @ColumnInfo(name = "value")
     val value : String = "",
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToIdInnerItem(string: String): IdInner? {
+    return try {
+        Gson().fromJson(string, IdInner::class.java)
+    }catch(e : Exception){ null }
+}
 
 data class PictureInner(
+    @SerializedName("large")
+    @ColumnInfo(name = "large")
     val large : String = "",
+    @SerializedName("medium")
+    @ColumnInfo(name = "medium")
     val medium : String = "",
+    @SerializedName("thumbnail")
+    @ColumnInfo(name = "thumbnail")
     val thumbnail : String = "",
-)
+){
+    override fun toString(): String {
+        return Gson().toJson(this)
+    }
+}
+
+fun fromStringToPictureInnerItem(string: String): PictureInner? {
+    return try {
+        Gson().fromJson(string, PictureInner::class.java)
+    }catch(e : Exception){ null }
+}
+
 
 
 

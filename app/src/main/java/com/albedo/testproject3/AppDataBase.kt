@@ -18,20 +18,11 @@ import com.albedo.testproject3.data.models.TimeZoneInner
 import com.albedo.testproject3.data.models.UserDataUIState
 import com.albedo.testproject3.data.source.local.UsersDao
 import com.albedo.testproject3.services.ListTypeConverter
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.annotation.Nullable
 
 
-@Database(entities = [
-    UserDataUIState::class,
-    NameInner::class,
-    LocationInner::class,
-    StreetInner::class,
-    CoordinatesInner::class,
-    TimeZoneInner::class,
-    DodInner::class,
-    LoginInner::class,
-    RegisteredInner::class,
-    IdInner::class,
-    PictureInner::class], version = 1, exportSchema = true)
+@Database(entities = [UserDataUIState::class, ], version = 1, exportSchema = true)
 @TypeConverters(ListTypeConverter::class)
 abstract class AppDataBase : RoomDatabase() {
 
@@ -42,7 +33,7 @@ abstract class AppDataBase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDataBase? = null
 
-        fun getDataBase(context: Context): AppDataBase {
+        fun getDataBase(@ApplicationContext context: Context): AppDataBase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance

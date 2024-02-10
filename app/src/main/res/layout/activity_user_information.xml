@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.userinformation.UserInformationActivity">
 
     <RelativeLayout
         android:id="@+id/container_tbr"
@@ -25,6 +26,7 @@
         android:id="@+id/container_scrool"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,12 +60,10 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="20dp"
-
                 android:autoSizeTextType="uniform"
                 android:gravity="center_vertical"
                 android:minHeight="10sp"
                 android:paddingHorizontal="10dp"
-
                 android:text="Male"
                 app:layout_constraintBottom_toBottomOf="@+id/txt_gender"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,10 +79,8 @@
                 android:autoSizeTextType="uniform"
                 android:gravity="center"
                 android:minHeight="10sp"
-
                 android:text="Name:"
                 android:textSize="20sp"
-
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -112,12 +110,10 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="20dp"
-
                 android:autoSizeTextType="uniform"
                 android:gravity="center_vertical"
                 android:minHeight="10sp"
                 android:paddingHorizontal="10dp"
-
                 android:text="Male"
                 app:layout_constraintBottom_toBottomOf="@+id/txt_name_title"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -146,12 +142,10 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="20dp"
-
                 android:autoSizeTextType="uniform"
                 android:gravity="center_vertical"
                 android:minHeight="10sp"
                 android:paddingHorizontal="10dp"
-
                 android:text="Male"
                 app:layout_constraintBottom_toBottomOf="@+id/txt_name_first"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -180,12 +174,10 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="20dp"
-
                 android:autoSizeTextType="uniform"
                 android:gravity="center_vertical"
                 android:minHeight="10sp"
                 android:paddingHorizontal="10dp"
-
                 android:text="Male"
                 app:layout_constraintBottom_toBottomOf="@+id/txt_name_last"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -230,11 +222,9 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="20dp"
-
                 android:autoSizeTextType="uniform"
                 android:gravity="center_vertical"
                 android:minHeight="10sp"
-
                 android:paddingHorizontal="10dp"
                 android:text="Male"
                 app:layout_constraintBottom_toBottomOf="@+id/txt_location_street"
@@ -264,12 +254,10 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="20dp"
-
                 android:autoSizeTextType="uniform"
                 android:gravity="center_vertical"
                 android:minHeight="10sp"
                 android:paddingHorizontal="10dp"
-
                 android:text="Male"
                 app:layout_constraintBottom_toBottomOf="@+id/txt_location_city"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -1185,7 +1173,6 @@
         android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/container_tbr"
-        app:srcCompat="@android:drawable/ic_notification_overlay" />
+        app:layout_constraintTop_toBottomOf="@+id/container_tbr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
