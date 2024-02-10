@@ -3,6 +3,7 @@ package com.albedo.testproject3.ui.main
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.viewModelScope
@@ -19,17 +20,6 @@ import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-//    1. Выводится краткая информация о пользователях (ФИО, фотография, адрес, номер
-//    телефона) в виде списка, полученная от https://randomuser.me ;                                    +
-//    2. По клику на элемент списка на отдельном экране показывается полная информация о
-//    выбранном пользователе;                                                                           +
-//    3. Данные о пользователях не теряются при перезапуске приложения;                                 +
-//    4. Нажатие на Email, номер телефона, адрес/координаты отправляет пользователя в
-//    приложение, которое может обработать эти данные (почта, звонилка, карты);
-//    5. Список пользователей можно обновить принудительно;                                             +
-//    6. Пользователю выводятся уведомления о возникших ошибках при загрузке данных или                 +
-//    работе с ними.
-
 
     val TAG = "MainActivity"
 
@@ -61,6 +51,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun  requireData() {
 
+        viewModel.errorData.onEach {
+            Log.d(TAG, "error : $it")
+            if(it != ""){ Toast.makeText(this@MainActivity,"Ошибка при загрузке данных - $it",Toast.LENGTH_LONG).show() }
+        }.launchIn(viewModel.viewModelScope)
+
         viewModel.data.onEach {
             Log.d(TAG, "mainItems : $it")
             viewModel.setListInViewModel(it)
@@ -73,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     private fun setListeners() {
         views {
             toolBar.btnReloadUsers.setOnClickListener{
-                viewModel.refreshDataByBtn()
+                val error = viewModel.refreshDataByBtn()
             }
         }
     }

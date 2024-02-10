@@ -1,5 +1,7 @@
 package com.albedo.testproject3.ui.userinformation
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -15,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
+
 @AndroidEntryPoint
 class UserInformationActivity : AppCompatActivity() {
 
@@ -27,8 +30,6 @@ class UserInformationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityUserInformationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        init()
 
         val bundle = this.intent.extras
         if (bundle != null) {
@@ -44,7 +45,10 @@ class UserInformationActivity : AppCompatActivity() {
             finish()
         }
 
+
         requireData()
+
+        setListeners(viewModel.mainItem)
     }
 
     private fun <T> views(block: ActivityUserInformationBinding.() -> T): T? = binding.block()
@@ -54,13 +58,9 @@ class UserInformationActivity : AppCompatActivity() {
 
         viewModel.data.onEach {
             setViews(it)
+            setListeners(it)
         }.launchIn(viewModel.viewModelScope)
     }
-
-    private fun init() {
-        setListeners()
-    }
-
 
     private fun setViews(item : UserUIState) {
 
@@ -107,10 +107,41 @@ class UserInformationActivity : AppCompatActivity() {
         }
     }
 
-    private fun setListeners() {
+    private fun setListeners(item : UserUIState) {
         views {
+
+
             toolBar.btnToMA.setOnClickListener {
                 finish()
+            }
+
+
+            containerLocation.setOnClickListener {
+                val uri = "http://maps.google.com/maps?daddr=${item.locationLatitude},${item.locationLongitude} (Where the party is at)"
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                intent.setPackage("com.google.android.apps.maps")
+                startActivity(intent)
+            }
+
+
+            txtEmailInfo.setOnClickListener {
+                val intent = Intent(Intent.ACTION_SEND).apply {
+                    type = "*/*"
+                    putExtra(Intent.EXTRA_EMAIL, arrayListOf<String>(item.email))
+                }
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                }
+            }
+
+
+
+            txtPhoneInfo.setOnClickListener {
+                val phoneNumber = item.phone
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("tel:$phoneNumber"))
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                }
             }
         }
     }

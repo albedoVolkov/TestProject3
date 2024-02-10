@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 interface UsersRepoInterface  {
 
     suspend fun updatePermissionUpdate(permission : Boolean)
-    suspend fun refreshItemsData()
+    suspend fun refreshItemsData(): String
 
     fun getItemListFlow(): Flow<List<UserUIState>>
     suspend fun getItemList(): List<UserUIState>

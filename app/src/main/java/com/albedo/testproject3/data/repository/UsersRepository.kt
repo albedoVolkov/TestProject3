@@ -18,7 +18,6 @@ class UsersRepository @Inject constructor(
     private val remoteSource: RetrofitDataSource,//main source of data
     private val localSource: UsersLocalDataSource,//just holder of data
     private val factory: ItemFactory,//just holder of data
-    @ApplicationContext private val context: Context
 ) : UsersRepoInterface {
 
     companion object{
@@ -37,7 +36,7 @@ class UsersRepository @Inject constructor(
 
 
 
-    override suspend fun refreshItemsData() {
+    override suspend fun refreshItemsData() : String{
         try{
             if(!sessionManager.noNeedToUpdate()) {
 
@@ -70,8 +69,9 @@ class UsersRepository @Inject constructor(
             }
         } catch (e: Exception) {
             Log.d(TAG, "refreshItemsData: error - ${e.message}")
-            Toast.makeText(context,"Ошибка при загрузке данных - ${e.message}",Toast.LENGTH_LONG).show()
+            return "${e.message}"
         }
+        return ""
     }
 
 
